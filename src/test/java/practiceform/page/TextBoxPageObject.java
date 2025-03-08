@@ -8,15 +8,15 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TextBoxPageObject {
 
-    private SelenideElement userName = $("#userName");
-    private SelenideElement userEmail = $("#userEmail");
-    private SelenideElement userCurrentAddress = $("#currentAddress");
-    private SelenideElement userPermanentAddress = $("#permanentAddress");
-    private SelenideElement submitButton = $("#submit");
-    private SelenideElement outputUserName = $("#output #name");
-    private SelenideElement outputUserEmail = $("#output #email");
-    private SelenideElement outputUserCurrentAddress = $("#output #currentAddress");
-    private SelenideElement outputUserPermanentAddress = $("#output #permanentAddress");
+    final SelenideElement userName = $("#userName");
+    final SelenideElement userEmail = $("#userEmail");
+    final SelenideElement userCurrentAddress = $("#currentAddress");
+    final SelenideElement userPermanentAddress = $("#permanentAddress");
+    final SelenideElement submitButton = $("#submit");
+    final SelenideElement outputUserName = $("#output #name");
+    final SelenideElement outputUserEmail = $("#output #email");
+    final SelenideElement outputUserCurrentAddress = $("#output #currentAddress");
+    final SelenideElement outputUserPermanentAddress = $("#output #permanentAddress");
 
     public TextBoxPageObject openTextBoxPage(String titleText) {
         open("/text-box");
