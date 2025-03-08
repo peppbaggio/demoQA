@@ -1,6 +1,5 @@
 package practiceform.page;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import practiceform.page.components.CalendarComponent;
 import practiceform.page.components.ResultTableComponent;
@@ -15,17 +14,17 @@ public class RegistrationPage {
 
     // Поля сделаны package-private, чтобы использовать их в качестве
     // параметров в негативном методе
-    public SelenideElement firstName = $("#firstName");
-    public SelenideElement lastName = $("#lastName");
-    public SelenideElement userEmail = $("#userEmail");
-    public SelenideElement userNumber = $("#userNumber");
-    public SelenideElement userGender = $("[for=gender-radio-1]");
-    public SelenideElement calendarInput = $("#dateOfBirthInput");
-    public  SelenideElement subjectsInput = $("#subjectsInput");
-    public SelenideElement hobbies = $("[for=hobbies-checkbox-2]");
-    public SelenideElement userAddress = $("#currentAddress");
-    public  SelenideElement submitButton = $("#submit");
-    public  SelenideElement resultTable = $(".table-responsive");
+    final SelenideElement firstName = $("#firstName");
+    final SelenideElement lastName = $("#lastName");
+    final SelenideElement userEmail = $("#userEmail");
+    final SelenideElement userNumber = $("#userNumber");
+    final SelenideElement userGender = $("[for=gender-radio-1]");
+    final SelenideElement calendarInput = $("#dateOfBirthInput");
+    final SelenideElement subjectsInput = $("#subjectsInput");
+    final SelenideElement hobbies = $("[for=hobbies-checkbox-2]");
+    final SelenideElement userAddress = $("#currentAddress");
+    final SelenideElement submitButton = $("#submit");
+    final SelenideElement resultTable = $(".table-responsive");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultTableComponent resultTableComponent = new ResultTableComponent();
