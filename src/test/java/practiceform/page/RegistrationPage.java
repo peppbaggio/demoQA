@@ -9,19 +9,22 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static practiceform.data.TestData.*;
 
 public class RegistrationPage {
 
-    // Поля сделаны package-private, чтобы использовать их в качестве
-    // параметров в негативном методе
-    final SelenideElement firstName = $("#firstName");
-    final SelenideElement lastName = $("#lastName");
+    final SelenideElement userFirstName = $("#firstName");
+    final SelenideElement userLastName = $("#lastName");
     final SelenideElement userEmail = $("#userEmail");
     final SelenideElement userNumber = $("#userNumber");
-    final SelenideElement userGender = $("[for=gender-radio-1]");
+    final SelenideElement userGenderMale = $("[for=gender-radio-1]");
+    final SelenideElement userGenderFemale = $("[for=gender-radio-2]");
+    final SelenideElement userGenderOther = $("[for=gender-radio-3]");
     final SelenideElement calendarInput = $("#dateOfBirthInput");
-    final SelenideElement subjectsInput = $("#subjectsInput");
-    final SelenideElement hobbies = $("[for=hobbies-checkbox-2]");
+    final SelenideElement userSubjectsInput = $("#subjectsInput");
+    final SelenideElement userHobbiesSports = $("[for=hobbies-checkbox-1]");
+    final SelenideElement userHobbiesReading = $("[for=hobbies-checkbox-2]");
+    final SelenideElement userHobbiesMusic = $("[for=hobbies-checkbox-3]");
     final SelenideElement userAddress = $("#currentAddress");
     final SelenideElement submitButton = $("#submit");
     final SelenideElement resultTable = $(".table-responsive");
@@ -29,69 +32,94 @@ public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultTableComponent resultTableComponent = new ResultTableComponent();
 
+
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         return this;
     }
 
-    public RegistrationPage setFirstName(String name) {
-        firstName.scrollIntoView(true).setValue(name);
+    public RegistrationPage getFirstName() {
+        userFirstName.scrollIntoView(true).setValue(fakerFirstName);
         return this;
     }
 
-    public RegistrationPage setSurname(String surname) {
-        lastName.scrollIntoView(true).setValue(surname);
+    public RegistrationPage getSurname() {
+        userLastName.scrollIntoView(true).setValue(fakerSurname);
         return this;
     }
 
-    public RegistrationPage setUserEmail(String email) {
-        userEmail.scrollIntoView(true).setValue(email);
+    public RegistrationPage getUserEmail() {
+        userEmail.scrollIntoView(true).setValue(fakerEmail);
         return this;
     }
 
-    public RegistrationPage setUserNumber(String number) {
-        userNumber.scrollIntoView(true).setValue(number);
+    public RegistrationPage getUserPhone() {
+        userNumber.scrollIntoView(true).setValue(fakerPhone);
         return this;
     }
 
-    public RegistrationPage setUserGender() {
+    public RegistrationPage getUserGender() {
+        SelenideElement userGender;
+        if (fakerGender == "Male") {
+            userGender = userGenderMale;
+        }
+        else if (fakerGender == "Female") {
+            userGender = userGenderFemale;
+        }
+        else {
+            userGender = userGenderOther;
+        }
         userGender.scrollIntoView(true).click();
         return this;
     }
 
-    public RegistrationPage setCalendarDate(String day, String month, String year) {
+    public RegistrationPage getCalendarDate() {
         calendarInput.click();
-        calendarComponent.setDate(day, month, year);
+        calendarComponent.setDate(fakerCalendarDate[0], fakerCalendarDate[1], fakerCalendarDate[2]);
         return this;
     }
 
-
-    public RegistrationPage setSubjects(String subject) {
-        subjectsInput.setValue(subject).pressEnter();
+    public RegistrationPage getSubjects() {
+        userSubjectsInput.setValue(fakerSubjects).pressEnter();
         return this;
     }
 
-    public RegistrationPage setHobbies() {
-        hobbies.click();
+    public RegistrationPage getHobbies() {
+        SelenideElement userHobbies = null;
+
+        if (fakerHobbies == "Sports") {
+            userHobbies = userHobbiesSports;
+        }
+        else if (fakerHobbies == "Reading") {
+            userHobbies = userHobbiesReading;
+        }
+        else if (fakerHobbies == "Music") {
+            userHobbies = userHobbiesMusic;
+        }
+
+        userHobbies.click();
         return this;
     }
 
-    public RegistrationPage uploadPicture(String path) {
+    public RegistrationPage uploadPicture() {
+        String path = "img/" + fakerPicture;
         $("#uploadPicture").uploadFromClasspath(path);
+
         return this;
     }
 
-    public RegistrationPage setAddress(String address) {
-        userAddress.scrollIntoView(true).setValue(address);
+    public RegistrationPage getAddress() {
+        userAddress.scrollIntoView(true).setValue(fakerAddress);
+
         return this;
     }
 
-    public RegistrationPage selectStateAndCity(String state, String city) {
+    public RegistrationPage selectStateAndCity() {
         $(byText("Select State")).scrollIntoView(true).click();
-        $(byText(state)).scrollIntoView(true).click();
+        $(byText(fakerStateAndCity[0])).scrollIntoView(true).click();
         $(byText("Select City")).scrollIntoView(true).click();
-        $(byText(city)).scrollIntoView(true).click();
+        $(byText(fakerStateAndCity[1])).scrollIntoView(true).click();
         return this;
     }
 
@@ -101,21 +129,21 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkPageNotOpen() {
-        $(".modal-dialog").shouldNot(appear);
-
-        return this;
-    }
-
     public RegistrationPage submitClick() {
         submitButton.scrollIntoView(true).click();
 
         return this;
     }
 
-
     public RegistrationPage checkResults(String key, String value) {
         resultTableComponent.positiveCheckTable(resultTable, key, value);
+
+        return this;
+    }
+
+
+    public RegistrationPage checkPageNotOpen() {
+        $(".modal-dialog").shouldNot(appear);
 
         return this;
     }
@@ -125,6 +153,7 @@ public class RegistrationPage {
 
         return this;
     }
+
 
 }
 
