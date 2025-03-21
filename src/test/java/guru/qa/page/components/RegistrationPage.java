@@ -48,10 +48,10 @@ public class RegistrationPage {
     public RegistrationPage setGender(String value) {
         SelenideElement gender;
 
-        if (value == "Male") {
+        if (value.equals("Male")) {
             gender = maleGender;
         }
-        else if (value == "Female") {
+        else if (value.equals("Female")) {
             gender = femaleGender;
         }
         else {
