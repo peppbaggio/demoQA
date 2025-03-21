@@ -3,7 +3,7 @@ package guru.qa.tests;
 import guru.qa.TestBase;
 import guru.qa.data.FakerData;
 import guru.qa.data.Genders;
-import guru.qa.page.components.RegistrationPage;
+import guru.qa.page.RegistrationPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
