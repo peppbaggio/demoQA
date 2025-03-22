@@ -17,7 +17,7 @@ public class ParameterizedTests extends TestBase {
     @ParameterizedTest(name = "Поле Имя принимает и корректно отображает значение {0}")
     @DisplayName("Тест на заполение поля имени символами разных алфавитов")
     @ValueSource(strings = {"Paddington", "Василий", "Γαλακτίων", "सहायक"})
-    void firstNameFieldShouldAcceptValuesInDifferentEncodings(String value) {
+    void firstNameFieldShouldAcceptValuesInDifferentEncodingsTest(String value) {
         registrationPage.openPage()
                 .setFirstName(value)
                 .setLastName("White")
@@ -41,7 +41,7 @@ public class ParameterizedTests extends TestBase {
             "Γαλακτίων | Παπαδόπουλος",
             "सहायक | कपूर"
     }, delimiter = '|')
-    void firstAndLastNameFieldsShouldAcceptValuesInDifferentEncodings(String nameValue, String surnameValue) {
+    void firstAndLastNameFieldsShouldAcceptValuesInDifferentEncodingsTest(String nameValue, String surnameValue) {
         registrationPage.openPage()
                 .setFirstName(nameValue)
                 .setLastName(surnameValue)
@@ -77,7 +77,7 @@ public class ParameterizedTests extends TestBase {
 
     static FakerData fakerData = new FakerData();
 
-    static Stream<Arguments> allFieldShouldAcceptRandomlValues() {
+    static Stream<Arguments> allFieldShouldAcceptRandomlValuesTest() {
         return Stream.of(
                 Arguments.of("Γαλακτίων", "Παπαδόπουλος", fakerData.setNumber(), Genders.MALE),
                 Arguments.of("Маруся", "Петрова", fakerData.setNumber(), Genders.FEMALE),
@@ -88,7 +88,7 @@ public class ParameterizedTests extends TestBase {
     @ParameterizedTest
     @MethodSource
     @DisplayName("Тест на рэндомное заполнение всех обязательных полей")
-    void allFieldShouldAcceptRandomlValues(String firstName, String lastName,
+    void allFieldShouldAcceptRandomlValuesTest(String firstName, String lastName,
                                            String number, Genders genders) {
 
         registrationPage.openPage()
@@ -108,7 +108,7 @@ public class ParameterizedTests extends TestBase {
     @ParameterizedTest(name = "Проверка пустого ввода для поля Имя ")
     @NullSource
     @EmptySource
-    void withEmptyOrNullFirstNameFieldModalWindowsShouldNotAppear(String value) {
+    void withEmptyOrNullFirstNameFieldModalWindowsShouldNotAppearTest(String value) {
         registrationPage.openPage()
                 .setFirstName(value)
                 .setLastName("Bear")
