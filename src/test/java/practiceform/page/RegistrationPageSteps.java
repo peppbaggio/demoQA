@@ -57,10 +57,10 @@ public class RegistrationPageSteps {
     @Step("Выбор пола")
     public void getUserGender() {
         SelenideElement userGender;
-        if (fakerGender == "Male") {
+        if (fakerGender.equals("Male")) {
             userGender = userGenderMale;
         }
-        else if (fakerGender == "Female") {
+        else if (fakerGender.equals("Female")) {
             userGender = userGenderFemale;
         }
         else {
@@ -84,10 +84,10 @@ public class RegistrationPageSteps {
     public void getHobbies() {
         SelenideElement userHobbies = null;
 
-        if (fakerHobbies == "Sports") {
+        if (fakerHobbies.equals("Sports")) {
             userHobbies = userHobbiesSports;
         }
-        else if (fakerHobbies == "Reading") {
+        else if (fakerHobbies.equals("Reading")) {
             userHobbies = userHobbiesReading;
         }
         userHobbies.click();

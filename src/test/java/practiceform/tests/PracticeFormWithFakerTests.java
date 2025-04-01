@@ -18,7 +18,7 @@ public class PracticeFormWithFakerTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Epic("Функционал регистрации")
     @Feature("Все поля")
-    @Owner("peppbaggio")
+    @Owner("melkijbes")
     void completingAllTheFormOpensModalWindowWithResultsTest() {
 
         steps.openPage();
@@ -54,7 +54,7 @@ public class PracticeFormWithFakerTests extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Функционал регистрации")
     @Feature("Обязательные поля")
-    @Owner("peppbaggio")
+    @Owner("melkijbes")
     void completingRequiredFieldsOnlyOpensModalWindowWithCorrespondingFieldsTest() {
 
         steps.openPage();
