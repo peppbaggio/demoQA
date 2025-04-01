@@ -30,6 +30,7 @@ dependencies {
 
 }
 
+def allureVersion = "2.29.0"
 
 tasks.withType(Test) {
     useJUnitPlatform()
