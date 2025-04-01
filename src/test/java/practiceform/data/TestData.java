@@ -53,7 +53,7 @@ public class TestData {
     }
 
     public static String setHobbies() {
-        String hobby = faker.options().option("Sports", "Reading");
+        String hobby = faker.options().option("Sports", "Reading", "Music");
         return hobby;
     }
 

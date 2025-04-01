@@ -1,7 +1,6 @@
 package practiceform.page;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
 import practiceform.page.components.CalendarComponent;
 import practiceform.page.components.ResultTableComponent;
 
@@ -12,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static practiceform.data.TestData.*;
 
-public class RegistrationPageSteps {
+public class RegistrationPage {
 
     final SelenideElement userFirstName = $("#firstName");
     final SelenideElement userLastName = $("#lastName");
@@ -25,6 +24,7 @@ public class RegistrationPageSteps {
     final SelenideElement userSubjectsInput = $("#subjectsInput");
     final SelenideElement userHobbiesSports = $("[for=hobbies-checkbox-1]");
     final SelenideElement userHobbiesReading = $("[for=hobbies-checkbox-2]");
+    final SelenideElement userHobbiesMusic = $("[for=hobbies-checkbox-3]");
     final SelenideElement userAddress = $("#currentAddress");
     final SelenideElement submitButton = $("#submit");
     final SelenideElement resultTable = $(".table-responsive");
@@ -32,105 +32,126 @@ public class RegistrationPageSteps {
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultTableComponent resultTableComponent = new ResultTableComponent();
 
-    @Step("Открывается страница регистрации")
-    public void openPage() {
+
+    public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        return this;
     }
 
-    @Step("Ввод имени и фамилии")
-    public void getName() {
+    public RegistrationPage getFirstName() {
         userFirstName.scrollIntoView(true).setValue(fakerFirstName);
+        return this;
+    }
+
+    public RegistrationPage getSurname() {
         userLastName.scrollIntoView(true).setValue(fakerSurname);
+        return this;
     }
 
-@Step("Ввод емейла")
-    public void getUserEmail() {
+    public RegistrationPage getUserEmail() {
         userEmail.scrollIntoView(true).setValue(fakerEmail);
+        return this;
     }
 
-    @Step("Ввод номера телефона")
-    public void getUserPhone() {
+    public RegistrationPage getUserPhone() {
         userNumber.scrollIntoView(true).setValue(fakerPhone);
+        return this;
     }
 
-    @Step("Выбор пола")
-    public void getUserGender() {
+    public RegistrationPage getUserGender() {
         SelenideElement userGender;
-        if (fakerGender.equals("Male")) {
+        if (fakerGender == "Male") {
             userGender = userGenderMale;
         }
-        else if (fakerGender.equals("Female")) {
+        else if (fakerGender == "Female") {
             userGender = userGenderFemale;
         }
         else {
             userGender = userGenderOther;
         }
         userGender.scrollIntoView(true).click();
+        return this;
     }
 
-    @Step("Выбор даты")
-    public void getCalendarDate() {
+    public RegistrationPage getCalendarDate() {
         calendarInput.click();
         calendarComponent.setDate(fakerCalendarDate[0], fakerCalendarDate[1], fakerCalendarDate[2]);
+        return this;
     }
 
-    @Step("Выбор предметов")
-    public void getSubjects() {
+    public RegistrationPage getSubjects() {
         userSubjectsInput.setValue(fakerSubjects).pressEnter();
+        return this;
     }
 
-    @Step("Выбор хобби")
-    public void getHobbies() {
+    public RegistrationPage getHobbies() {
         SelenideElement userHobbies = null;
 
-        if (fakerHobbies.equals("Sports")) {
+        if (fakerHobbies == "Sports") {
             userHobbies = userHobbiesSports;
         }
-        else if (fakerHobbies.equals("Reading")) {
+        else if (fakerHobbies == "Reading") {
             userHobbies = userHobbiesReading;
         }
+        else if (fakerHobbies == "Music") {
+            userHobbies = userHobbiesMusic;
+        }
+
         userHobbies.click();
+        return this;
     }
 
-    @Step("Загрузка изображения")
-    public void uploadPicture() {
+    public RegistrationPage uploadPicture() {
         String path = "img/" + fakerPicture;
         $("#uploadPicture").uploadFromClasspath(path);
+
+        return this;
     }
 
-    @Step("Ввод адреса")
-    public void getAddress() {
+    public RegistrationPage getAddress() {
         userAddress.scrollIntoView(true).setValue(fakerAddress);
+
+        return this;
     }
 
-    @Step("Выбор штата и города из выпадающего списка")
-    public void selectStateAndCity() {
+    public RegistrationPage selectStateAndCity() {
         $(byText("Select State")).scrollIntoView(true).click();
         $(byText(fakerStateAndCity[0])).scrollIntoView(true).click();
         $(byText("Select City")).scrollIntoView(true).click();
         $(byText(fakerStateAndCity[1])).scrollIntoView(true).click();
+        return this;
     }
 
-    @Step("Проверка появления модального окна")
-    public void checkPageOpen(String titleText) {
+    public RegistrationPage checkPageOpen(String titleText) {
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text(titleText));
+        return this;
     }
 
-    @Step("Клик по кнопке")
-    public void submitClick() {
+    public RegistrationPage submitClick() {
         submitButton.scrollIntoView(true).click();
+
+        return this;
     }
 
-    @Step("Проверка содержимого итоговой таблицы")
-    public void checkResults(String key, String value) {
+    public RegistrationPage checkResults(String key, String value) {
         resultTableComponent.positiveCheckTable(resultTable, key, value);
+
+        return this;
     }
 
-     @Step("Проверка отсутствия совпадений в итоговой таблице")
-    public void checkNegativeResults(String key) {
+
+    public RegistrationPage checkPageNotOpen() {
+        $(".modal-dialog").shouldNot(appear);
+
+        return this;
+    }
+
+    public RegistrationPage checkNegativeResults(String key) {
         resultTableComponent.negativeCheckTable(resultTable, key);
+
+        return this;
     }
 
 
