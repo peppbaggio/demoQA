@@ -2,6 +2,7 @@ package practiceform.tests;
 
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import practiceform.TestBase;
 import practiceform.page.RegistrationPageSteps;
@@ -14,6 +15,7 @@ public class PracticeFormWithFakerTests extends TestBase {
 
 
     @Test
+    @Tag("registration")
     @DisplayName("Проверка корректности заполнения формы регистрации")
     @Severity(SeverityLevel.NORMAL)
     @Epic("Функционал регистрации")
@@ -50,6 +52,7 @@ public class PracticeFormWithFakerTests extends TestBase {
     }
 
     @Test
+    @Tag("registration")
     @DisplayName("Проверка корректности заполнения обязательных полей формы регистрации")
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Функционал регистрации")
