@@ -58,7 +58,7 @@ public class TestData {
     }
 
     public static String setPicture() {
-        String picture = faker.options().option("picture.jpeg", "weather.jpg");
+        String picture = faker.options().option("picture.png", "weather.png");
         return picture;
     }
 
