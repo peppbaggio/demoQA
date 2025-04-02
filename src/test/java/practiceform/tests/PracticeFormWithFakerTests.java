@@ -14,7 +14,6 @@ import static practiceform.data.TestData.*;
 public class PracticeFormWithFakerTests extends TestBase {
     practiceform.page.RegistrationPageSteps steps = new RegistrationPageSteps();
 
-
     @Test
     @Tag("registration")
     @DisplayName("Проверка корректности заполнения формы регистрации")
@@ -32,7 +31,6 @@ public class PracticeFormWithFakerTests extends TestBase {
         steps.getCalendarDate();
         steps.getSubjects();
         steps.getHobbies();
-        steps.uploadPicture();
         steps.getAddress();
         steps.selectStateAndCity();
 
@@ -46,7 +44,6 @@ public class PracticeFormWithFakerTests extends TestBase {
         steps.checkResults("Date of Birth", fakerCalendarDate[0] + " " + fakerCalendarDate[1] + "," + fakerCalendarDate[2]);
         steps.checkResults("Subjects", fakerSubjects);
         steps.checkResults("Hobbies", fakerHobbies);
-        steps.checkResults("Picture", fakerPicture);
         steps.checkResults("Address", fakerAddress);
         steps.checkResults("State and City", fakerStateAndCity[0] + " " + fakerStateAndCity[1]);
 

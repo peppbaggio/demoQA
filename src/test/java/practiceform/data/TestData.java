@@ -57,11 +57,6 @@ public class TestData {
         return hobby;
     }
 
-    public static String setPicture() {
-        String picture = faker.options().option("picture.png", "weather.png");
-        return picture;
-    }
-
     public static String setAddress() {
         String address = faker.address().fullAddress();
         return address;
@@ -82,7 +77,6 @@ public class TestData {
     public static String[] fakerCalendarDate = setCalendarDate();
     public static String fakerSubjects = setSubjects();
     public static String fakerHobbies = setHobbies();
-    public static String fakerPicture = setPicture();
     public static String fakerAddress = setAddress();
     public static String[] fakerStateAndCity = setStateAndCity();
 

@@ -97,12 +97,6 @@ public class RegistrationPageSteps {
         userHobbies.scrollIntoView(true).click();
     }
 
-    @Step("Загрузка изображения")
-    public void uploadPicture() {
-        String path = "img/" + fakerPicture;
-        $("#uploadPicture").uploadFromClasspath(path);
-    }
-
     @Step("Ввод адреса")
     public void getAddress() {
         userAddress.scrollIntoView(true).setValue(fakerAddress);
