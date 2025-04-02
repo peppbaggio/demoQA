@@ -99,7 +99,7 @@ public class RegistrationPageSteps {
 
     @Step("Загрузка изображения")
     public void uploadPicture() {
-        String path = "resources/img/" + fakerPicture;
+        String path = "img/" + fakerPicture;
         $("#uploadPicture").uploadFromClasspath(path);
     }
 
