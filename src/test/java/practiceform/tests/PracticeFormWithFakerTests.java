@@ -54,6 +54,7 @@ public class PracticeFormWithFakerTests extends TestBase {
 
     @Test
     @Disabled
+
     @Tag("registration")
     @DisplayName("Проверка корректности заполнения обязательных полей формы регистрации")
     @Severity(SeverityLevel.CRITICAL)
