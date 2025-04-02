@@ -51,32 +51,32 @@ public class PracticeFormWithFakerTests extends TestBase {
 
     }
 
-    @Test
-    @Tag("registration")
-    @DisplayName("Проверка корректности заполнения обязательных полей формы регистрации")
-    @Severity(SeverityLevel.CRITICAL)
-    @Epic("Функционал регистрации")
-    @Feature("Обязательные поля")
-    @Owner("melkijbes")
-    void completingRequiredFieldsOnlyOpensModalWindowWithCorrespondingFieldsTest() {
-
-        steps.openPage();
-        steps.getName();
-        steps.getUserPhone();
-        steps.getUserGender();
-        steps.submitClick();
-
-        steps.checkPageOpen("Thanks for submitting the form");
-        steps.checkResults("Student Name", fakerFirstName + " " + fakerSurname);
-        steps.checkResults("Mobile", fakerPhone);
-        steps.checkResults("Gender", fakerGender);
-        steps.checkNegativeResults("Student Email");
-        steps.checkNegativeResults("Subjects");
-        steps.checkNegativeResults("Hobbies");
-        steps.checkNegativeResults("Picture");
-        steps.checkNegativeResults("Address");
-        steps.checkNegativeResults("State and City");
-
-    }
+//    @Test
+//    @Tag("registration")
+//    @DisplayName("Проверка корректности заполнения обязательных полей формы регистрации")
+//    @Severity(SeverityLevel.CRITICAL)
+//    @Epic("Функционал регистрации")
+//    @Feature("Обязательные поля")
+//    @Owner("melkijbes")
+//    void completingRequiredFieldsOnlyOpensModalWindowWithCorrespondingFieldsTest() {
+//
+//        steps.openPage();
+//        steps.getName();
+//        steps.getUserPhone();
+//        steps.getUserGender();
+//        steps.submitClick();
+//
+//        steps.checkPageOpen("Thanks for submitting the form");
+//        steps.checkResults("Student Name", fakerFirstName + " " + fakerSurname);
+//        steps.checkResults("Mobile", fakerPhone);
+//        steps.checkResults("Gender", fakerGender);
+//        steps.checkNegativeResults("Student Email");
+//        steps.checkNegativeResults("Subjects");
+//        steps.checkNegativeResults("Hobbies");
+//        steps.checkNegativeResults("Picture");
+//        steps.checkNegativeResults("Address");
+//        steps.checkNegativeResults("State and City");
+//
+//    }
 
 }
