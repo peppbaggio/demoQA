@@ -25,6 +25,7 @@ public class RegistrationPageSteps {
     final SelenideElement userSubjectsInput = $("#subjectsInput");
     final SelenideElement userHobbiesSports = $("[for=hobbies-checkbox-1]");
     final SelenideElement userHobbiesReading = $("[for=hobbies-checkbox-2]");
+    final SelenideElement userHobbiesMusic = $("[for=hobbies-checkbox-3]");
     final SelenideElement userAddress = $("#currentAddress");
     final SelenideElement submitButton = $("#submit");
     final SelenideElement resultTable = $(".table-responsive");
@@ -77,7 +78,7 @@ public class RegistrationPageSteps {
 
     @Step("Выбор предметов")
     public void getSubjects() {
-        userSubjectsInput.setValue(fakerSubjects).pressEnter();
+        userSubjectsInput.scrollIntoView(true).setValue(fakerSubjects).pressEnter();
     }
 
     @Step("Выбор хобби")
@@ -90,7 +91,10 @@ public class RegistrationPageSteps {
         else if (fakerHobbies.equals("Reading")) {
             userHobbies = userHobbiesReading;
         }
-        userHobbies.click();
+        else if (fakerHobbies.equals("Music")) {
+            userHobbies = userHobbiesMusic;
+        }
+        userHobbies.scrollIntoView(true).click();
     }
 
     @Step("Загрузка изображения")
