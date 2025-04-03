@@ -81,7 +81,6 @@ public class PracticeFormWithFakerTests {
     }
 
     @Test
-    @Disabled
     @Tag("registration")
     @DisplayName("Проверка корректности заполнения обязательных полей формы регистрации")
     @Severity(SeverityLevel.CRITICAL)
