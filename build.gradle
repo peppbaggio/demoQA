@@ -46,6 +46,12 @@ tasks.withType(Test) {
 
 task registration_test(type: Test) {
     useJUnitPlatform {
-        includeTags("registration")
+        includeTags("fullRegistration")
+    }
+}
+
+task required_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("requiredFields")
     }
 }

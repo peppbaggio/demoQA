@@ -46,7 +46,7 @@ public class PracticeFormWithFakerTests {
     practiceform.page.RegistrationPageSteps steps = new RegistrationPageSteps();
 
     @Test
-    @Tag("registration")
+    @Tag("fullRegistration")
     @DisplayName("Проверка корректности заполнения формы регистрации")
     @Severity(SeverityLevel.NORMAL)
     @Epic("Функционал регистрации")
@@ -81,7 +81,7 @@ public class PracticeFormWithFakerTests {
     }
 
     @Test
-    @Tag("registration")
+    @Tag("requiredFields")
     @DisplayName("Проверка корректности заполнения обязательных полей формы регистрации")
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Функционал регистрации")
