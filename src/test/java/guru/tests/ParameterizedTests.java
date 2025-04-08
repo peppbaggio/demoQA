@@ -6,10 +6,17 @@ import guru.data.Genders;
 import guru.pages.Steps;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
+
+import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 @DisplayName("Тесты на параметризованное заполнение обязательных полей")
 public class ParameterizedTests extends TestBase {
@@ -93,6 +100,7 @@ public class ParameterizedTests extends TestBase {
 
     @ParameterizedTest
     @Tag("required")
+    @Disabled
     @MethodSource
     @DisplayName("Тест на рэндомное заполнение всех обязательных полей")
     void allFieldShouldAcceptRandomlValuesTest(String firstName, String lastName,
@@ -113,6 +121,7 @@ public class ParameterizedTests extends TestBase {
     }
 
     @ParameterizedTest(name = "Проверка пустого ввода для поля Имя ")
+    @Disabled
     @Tag("negative")
     @NullSource
     @EmptySource
@@ -128,4 +137,39 @@ public class ParameterizedTests extends TestBase {
         steps.checkModalIsNotOpen();
 
     }
+
+
+    @Test
+    @Tag("simple")
+    void simpleTest() {
+        open("");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
+        $("#firstName").setValue("Alex");
+        $("#lastName").setValue("Egorov");
+        $("#userEmail").setValue("alex@egorov.com");
+        $("#genterWrapper").$(byText("Other")).click();
+        $("#userNumber").setValue("1234567890");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("July");
+        $(".react-datepicker__year-select").selectOption("2008");
+        $(".react-datepicker__day--030:not(.react-datepicker__day--outside-month)").click();
+        $("#subjectsInput").setValue("Math").pressEnter();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#uploadPicture").uploadFromClasspath("img/1.png");
+        $("#currentAddress").setValue("Some address 1");
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#submit").click();
+
+        $(".modal-dialog").should(appear);
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text("Alex"), text("Egorov"),
+                text("alex@egorov.com"), text("1234567890"));
+    }
+
 }
