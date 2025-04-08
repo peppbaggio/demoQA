@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Тесты на параметризованное заполнение обязательных полей" tests="2" skipped="0" failures="2" errors="0" timestamp="2025-04-07T23:34:06" hostname="master" time="0.085">
+  <properties/>
+  <testcase name="Проверка пустого ввода для поля Имя" classname="guru.tests.ParameterizedTests" time="0.005">
+    <failure message="java.lang.VerifyError: Expecting a stackmap frame at branch target 47&#10;Exception Details:&#10;  Location:&#10;    guru/pages/Steps.openPage()V @9: invokestatic&#10;  Reason:&#10;    Expected stackmap frame at this location.&#10;  Bytecode:&#10;    0000000: b200 992a 2ab8 009f 4cb8 00a5 2bb6 00a9&#10;    0000010: 123f b800 4112 45b8 0009 04bd 0047 5903&#10;    0000020: 1249 b800 4b53 b900 4f02 0057 a700 0d4d&#10;    0000030: b800 a52c b600 ad2c bfb8 00a5 b600 b0b1&#10;    0000040:                                        &#10;  Exception Handler Table:&#10;    bci [9, 47] =&gt; handler: 47&#10;" type="java.lang.VerifyError">java.lang.VerifyError: Expecting a stackmap frame at branch target 47
+Exception Details:
+  Location:
+    guru/pages/Steps.openPage()V @9: invokestatic
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0000000: b200 992a 2ab8 009f 4cb8 00a5 2bb6 00a9
+    0000010: 123f b800 4112 45b8 0009 04bd 0047 5903
+    0000020: 1249 b800 4b53 b900 4f02 0057 a700 0d4d
+    0000030: b800 a52c b600 ad2c bfb8 00a5 b600 b0b1
+    0000040:                                        
+  Exception Handler Table:
+    bci [9, 47] =&gt; handler: 47
+
+	at guru.tests.ParameterizedTests.&lt;init&gt;(ParameterizedTests.java:17)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <testcase name="Проверка пустого ввода для поля Имя" classname="guru.tests.ParameterizedTests" time="0.0">
+    <failure message="java.lang.VerifyError: Expecting a stackmap frame at branch target 47&#10;Exception Details:&#10;  Location:&#10;    guru/pages/Steps.openPage()V @9: invokestatic&#10;  Reason:&#10;    Expected stackmap frame at this location.&#10;  Bytecode:&#10;    0000000: b200 992a 2ab8 009f 4cb8 00a5 2bb6 00a9&#10;    0000010: 123f b800 4112 45b8 0009 04bd 0047 5903&#10;    0000020: 1249 b800 4b53 b900 4f02 0057 a700 0d4d&#10;    0000030: b800 a52c b600 ad2c bfb8 00a5 b600 b0b1&#10;    0000040:                                        &#10;  Exception Handler Table:&#10;    bci [9, 47] =&gt; handler: 47&#10;" type="java.lang.VerifyError">java.lang.VerifyError: Expecting a stackmap frame at branch target 47
+Exception Details:
+  Location:
+    guru/pages/Steps.openPage()V @9: invokestatic
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0000000: b200 992a 2ab8 009f 4cb8 00a5 2bb6 00a9
+    0000010: 123f b800 4112 45b8 0009 04bd 0047 5903
+    0000020: 1249 b800 4b53 b900 4f02 0057 a700 0d4d
+    0000030: b800 a52c b600 ad2c bfb8 00a5 b600 b0b1
+    0000040:                                        
+  Exception Handler Table:
+    bci [9, 47] =&gt; handler: 47
+
+	at guru.tests.ParameterizedTests.&lt;init&gt;(ParameterizedTests.java:17)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

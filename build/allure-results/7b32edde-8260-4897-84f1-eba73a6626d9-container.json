@@ -1,0 +1,1 @@
+{"uuid":"7b32edde-8260-4897-84f1-eba73a6626d9","name":"Проверка пустого ввода для поля Имя","children":["26fac0e2-7ad2-40a7-9eb3-6f47a98a1b91"],"befores":[{"name":"setConfig","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1744066002728,"stop":1744066002732}],"afters":[],"start":1744066002678,"stop":1744066045658}
