@@ -9,11 +9,11 @@ public class ResultTableComponent {
 
     public void positiveCheckTable(SelenideElement resultTable, String key, String value) {
 
-        resultTable.$(byText(key)).sibling(0).shouldHave(text(value));
+        resultTable.$(byText(key)).sibling(0).scrollIntoView(true).shouldHave(text(value));
 
     }
 
     public void negativeCheckTable(SelenideElement resultTable, String key) {
-        resultTable.$(byText(key)).sibling(0).shouldBe(empty);
+        resultTable.$(byText(key)).sibling(0).scrollIntoView(true).shouldBe(empty);
     }
 }

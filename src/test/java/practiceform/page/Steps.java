@@ -1,6 +1,7 @@
 package practiceform.page;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import practiceform.page.components.CalendarComponent;
 import practiceform.page.components.ResultTableComponent;
 
@@ -11,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static practiceform.data.TestData.*;
 
-public class RegistrationPage {
+public class Steps {
 
     final SelenideElement userFirstName = $("#firstName");
     final SelenideElement userLastName = $("#lastName");
@@ -33,125 +34,118 @@ public class RegistrationPage {
     ResultTableComponent resultTableComponent = new ResultTableComponent();
 
 
-    public RegistrationPage openPage() {
+    @Step("Открытие страницы регистрации")
+    public void openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        return this;
     }
 
-    public RegistrationPage getFirstName() {
+    @Step("Ввод имени")
+    public void getFirstName() {
         userFirstName.scrollIntoView(true).setValue(fakerFirstName);
-        return this;
     }
 
-    public RegistrationPage getSurname() {
+    @Step("Ввод фамилии")
+    public void getSurname() {
         userLastName.scrollIntoView(true).setValue(fakerSurname);
-        return this;
     }
 
-    public RegistrationPage getUserEmail() {
+    @Step("Ввод емейла")
+    public void getUserEmail() {
         userEmail.scrollIntoView(true).setValue(fakerEmail);
-        return this;
     }
 
-    public RegistrationPage getUserPhone() {
+    @Step("Ввод номера телефона")
+    public void getUserPhone() {
         userNumber.scrollIntoView(true).setValue(fakerPhone);
-        return this;
     }
 
-    public RegistrationPage getUserGender() {
+    @Step("Выбор пола")
+    public void getUserGender() {
         SelenideElement userGender;
-        if (fakerGender == "Male") {
+        if (fakerGender.equals("Male")) {
             userGender = userGenderMale;
         }
-        else if (fakerGender == "Female") {
+        else if (fakerGender.equals("Female")) {
             userGender = userGenderFemale;
         }
         else {
             userGender = userGenderOther;
         }
         userGender.scrollIntoView(true).click();
-        return this;
     }
 
-    public RegistrationPage getCalendarDate() {
+    @Step("Получение календарной даты")
+    public void getCalendarDate() {
         calendarInput.click();
         calendarComponent.setDate(fakerCalendarDate[0], fakerCalendarDate[1], fakerCalendarDate[2]);
-        return this;
     }
 
-    public RegistrationPage getSubjects() {
+    @Step("Выбор предметов")
+    public void getSubjects() {
         userSubjectsInput.setValue(fakerSubjects).pressEnter();
-        return this;
     }
 
-    public RegistrationPage getHobbies() {
+    @Step("Выбор хобби")
+    public void getHobbies() {
         SelenideElement userHobbies = null;
 
-        if (fakerHobbies == "Sports") {
+        if (fakerHobbies.equals("Sports")) {
             userHobbies = userHobbiesSports;
         }
-        else if (fakerHobbies == "Reading") {
+        else if (fakerHobbies.equals("Reading")) {
             userHobbies = userHobbiesReading;
         }
-        else if (fakerHobbies == "Music") {
+        else if (fakerHobbies.equals("Music")) {
             userHobbies = userHobbiesMusic;
         }
 
-        userHobbies.click();
-        return this;
+        userHobbies.scrollIntoView(true).click();
     }
 
-    public RegistrationPage uploadPicture() {
+    @Step("Загрузка изображения")
+    public void uploadPicture() {
         String path = "img/" + fakerPicture;
         $("#uploadPicture").uploadFromClasspath(path);
-
-        return this;
     }
 
-    public RegistrationPage getAddress() {
+    @Step("Задание адреса")
+    public void getAddress() {
         userAddress.scrollIntoView(true).setValue(fakerAddress);
-
-        return this;
     }
 
-    public RegistrationPage selectStateAndCity() {
+    @Step("Выбор штата и города")
+    public void selectStateAndCity() {
         $(byText("Select State")).scrollIntoView(true).click();
         $(byText(fakerStateAndCity[0])).scrollIntoView(true).click();
         $(byText("Select City")).scrollIntoView(true).click();
         $(byText(fakerStateAndCity[1])).scrollIntoView(true).click();
-        return this;
     }
 
-    public RegistrationPage checkPageOpen(String titleText) {
+    @Step("Проверка, что модальное окно открылось")
+    public void checkPageOpen(String titleText) {
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text(titleText));
-        return this;
     }
 
-    public RegistrationPage submitClick() {
+    @Step("Клик по кнопке")
+    public void submitClick() {
         submitButton.scrollIntoView(true).click();
-
-        return this;
     }
 
-    public RegistrationPage checkResults(String key, String value) {
+    @Step("Проверка, что таблица содержит введенные данные")
+    public void checkResults(String key, String value) {
         resultTableComponent.positiveCheckTable(resultTable, key, value);
-
-        return this;
     }
 
-
-    public RegistrationPage checkPageNotOpen() {
+    @Step("Проверка, что модальное окно не открылось")
+    public void checkPageNotOpen() {
         $(".modal-dialog").shouldNot(appear);
-
-        return this;
     }
 
-    public RegistrationPage checkNegativeResults(String key) {
+    @Step("Проверка, что таблица не содержит результатов")
+    public void checkNegativeResults(String key) {
         resultTableComponent.negativeCheckTable(resultTable, key);
-
-        return this;
     }
 
 
