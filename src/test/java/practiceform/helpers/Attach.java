@@ -25,11 +25,11 @@ public class Attach {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
-    @Attachment(value = "{attachName}", type = "text/plain")
-    public static String attachAsText(String attachName, String message) {
-        return message;
-    }
-
+//    @Attachment(value = "{attachName}", type = "text/plain")
+//    public static String attachAsText(String attachName, String message) {
+//        return message;
+//    }
+//
 //    public static void browserConsoleLogs() {
 //        attachAsText(
 //                "Browser console logs",

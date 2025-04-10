@@ -12,6 +12,7 @@ public class PracticeFormWithFakerTests extends TestBase {
 
     @Test
     @Tag("full")
+    @Tag("test")
     @DisplayName("Это полный позитивный тест")
     void practiceFormCompleteTests() {
 
@@ -48,6 +49,7 @@ public class PracticeFormWithFakerTests extends TestBase {
 
     @Test
     @Tag("required")
+    @Tag("test")
     @DisplayName("Это позитивный тест на обязательные поля")
     void practiceFormRequiredTests() {
 
@@ -75,6 +77,7 @@ public class PracticeFormWithFakerTests extends TestBase {
 
     @Test
     @Tag("negative")
+    @Tag("test")
     @DisplayName("Это негативный тест на обязательные поля с пустым именем")
     void negativeFirstNamePracticeFormRequiredTests() {
 
@@ -92,6 +95,7 @@ public class PracticeFormWithFakerTests extends TestBase {
 
     @Test
     @Tag("negative")
+    @Tag("test")
     @DisplayName("Это негативный тест на обязательные поля с пустым гендером")
     void negativeNoGenderPracticeFormRequiredTests() {
 
