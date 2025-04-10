@@ -14,13 +14,31 @@ import java.util.Map;
 
 
 public class TestBase {
+
+    static String getRemoteBrowser() {
+        String username = System.getProperty("username", "user");
+        String password = System.getProperty("password", "password");
+        String remoteBrowser = System.getProperty("remoteBrowser", "remoteBrowser");
+        String server = String.format("https://" + username + ":" + password + "@" + remoteBrowser + "/wd/hub");
+
+        return server;
+    }
+
     @BeforeAll
     static void configSetup() {
-        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browser = System.getProperty("browser", "firefox");
+        Configuration.browserVersion = System.getProperty("browserVersion", "127.0");
         Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = System.getProperty("host", "https://demoqa.com");
+        Configuration.remote = getRemoteBrowser();
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 10000;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+//        String fullUrl = "https://" + user + ":" + password + "@" + selenoidUrl;
+//        if (selenoidUrl != null && !selenoidUrl.isEmpty()) {
+//            Configuration.remote = fullUrl;
+//        }
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

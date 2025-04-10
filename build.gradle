@@ -44,3 +44,21 @@ tasks.withType(Test) {
 test {
     useJUnitPlatform()
 }
+
+task full_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("full")
+    }
+}
+
+task required_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("required")
+    }
+}
+
+task negative_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("negative")
+    }
+}
