@@ -52,11 +52,11 @@ public class TestBase {
     @AfterEach
     void doAfterEach() {
         Attach.screenshotAs("Screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
+//        Attach.pageSource();
+//        Attach.browserConsoleLogs();
+//        Attach.addVideo();
 
-        Selenide.closeWebDriver();
+//        Selenide.closeWebDriver();
     }
 
 }
