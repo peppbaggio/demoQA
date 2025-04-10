@@ -105,7 +105,7 @@ public class Steps {
 
     @Step("Загрузка изображения")
     public void uploadPicture() {
-        String path = "img/" + fakerPicture;
+        String path = "resources/img/" + fakerPicture;
         $("#uploadPicture").uploadFromClasspath(path);
     }
 
