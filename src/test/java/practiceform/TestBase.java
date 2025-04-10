@@ -20,7 +20,7 @@ public class TestBase {
         String username = System.getProperty("username", "user");
         String password = System.getProperty("password", "password");
         String remoteBrowser = System.getProperty("remoteBrowser", "remoteBrowser");
-        String server = String.format("https://" + username + ":" + password + "@" + remoteBrowser + "/wd/hub");
+        String server = "https://" + username + ":" + password + "@" + remoteBrowser + "/wd/hub";
 
         return server;
     }
