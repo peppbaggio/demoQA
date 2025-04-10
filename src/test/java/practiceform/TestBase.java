@@ -31,14 +31,6 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = System.getProperty("host", "https://demoqa.com");
         Configuration.remote = getRemoteBrowser();
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.timeout = 10000;
-
-//        String fullUrl = "https://" + user + ":" + password + "@" + selenoidUrl;
-//        if (selenoidUrl != null && !selenoidUrl.isEmpty()) {
-//            Configuration.remote = fullUrl;
-//        }
-
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -52,6 +44,8 @@ public class TestBase {
 
     @BeforeEach
     void configBeforeEach() {
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.timeout = 10000;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
