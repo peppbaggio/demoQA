@@ -53,10 +53,10 @@ public class TestBase {
     void doAfterEach() {
         Attach.screenshotAs("Screenshot");
         Attach.pageSource();
-        Attach.browserConsoleLogs();
-//        Attach.addVideo();
+//        Attach.browserConsoleLogs();
+        Attach.addVideo();
 
-//        Selenide.closeWebDriver();
+        Selenide.closeWebDriver();
     }
 
 }
